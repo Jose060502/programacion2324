@@ -1,30 +1,28 @@
 import java.util.Scanner;
 
 public class Ejercicio9 {
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int numero, sumaDivisores;
+        for (int i = 1 ; i <= 100; i++) {
+            if(esPerfecto(i)){
+                System.out.printf("El número %d es perfecto\n", i);
+            }
 
-        System.out.println("Introduce un número entero positivo:");
-        numero = scanner.nextInt();
-
-        while (numero <= 0) {
-            System.out.println("Introduce un número positivo:");
-            numero = scanner.nextInt();
         }
+    }
 
-        sumaDivisores = 0;
+    public static boolean esPerfecto(int num) {
 
-        for (int i = 1; i < numero ; i++) {
-            if (numero % i == 0) {
-                sumaDivisores += i;
+        int sum = 0 ;
+
+        for (int i = 1; i <= num/2; i++){
+            if (num % i == 0){
+                sum += i;
             }
         }
 
-        if (sumaDivisores == numero) {
-            System.out.println("El número " + numero + " es perfecto");
-        } else {
-            System.out.println("El número " + numero + " no es perfecto");
-        }
+        return sum == num;
     }
 }
+
+

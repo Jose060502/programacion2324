@@ -1,5 +1,4 @@
 public class Ejercicio13dos {
-    public class EjercicioPila {
         public static int[] pila;
         public static int numElem = 0;
 
@@ -70,4 +69,4 @@ public class Ejercicio13dos {
             System.out.println("]");
         }
     }
-}
+

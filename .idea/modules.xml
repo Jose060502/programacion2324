@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Boletin 1.1/Boletin 1.1.iml" filepath="$PROJECT_DIR$/Boletin 1.1/Boletin 1.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Boletin 1.2/Boletin 1.2.iml" filepath="$PROJECT_DIR$/Boletin 1.2/Boletin 1.2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Boletin 1.4/Boletin 1.4.iml" filepath="$PROJECT_DIR$/Boletin 1.4/Boletin 1.4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Boletin arrays/Boletin arrays.iml" filepath="$PROJECT_DIR$/Boletin arrays/Boletin arrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Boletin1.3/Boletin1.3.iml" filepath="$PROJECT_DIR$/Boletin1.3/Boletin1.3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/EjercicioDeProgramación.iml" filepath="$PROJECT_DIR$/.idea/EjercicioDeProgramación.iml" />
+    </modules>
+  </component>
+</project>

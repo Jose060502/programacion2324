@@ -1,16 +1,19 @@
 package Personas;
 import java.time.LocalDate;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
+
 public class Persona {
     public static final char[] LETRAS_DNI = {'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'};
     private String nombre;
-    private LocalDate fechaNacimineto;
+    private LocalDate fechaNacimiento;
     private int dni;
     private char sexo;
     private float altura;
     private float peso;
-    public Persona(String nombre, LocalDate fechaNacimineto, int dni, char sexo, float altura, float peso) {
+    public Persona(String nombre, LocalDate fechaNacimiento, int dni, char sexo, float altura, float peso) {
         this.nombre = nombre;
-        this.fechaNacimineto = fechaNacimineto;
+        this.fechaNacimiento = fechaNacimiento;
         this.dni = dni;
         this.sexo = sexo;
         this.altura = altura;
@@ -22,7 +25,7 @@ public class Persona {
     }
 
     public LocalDate getFechaNacimineto() {
-        return fechaNacimineto;
+        return fechaNacimiento;
     }
 
     public int getDni() {
@@ -53,5 +56,20 @@ public class Persona {
     }
     public float getIMC(){
         return peso/(altura*altura);
+    }
+    public long numDias(){
+        LocalDate fechaActual = LocalDate.now();
+        long dias = 0;
+
+        while (!fechaNacimiento.isAfter(fechaActual)) {
+            fechaNacimiento = fechaNacimiento.plusDays(1);
+            dias++;
+        }
+
+        return dias;
+
+    }
+    public Persona(LocalDate fechaNacimiento){
+        this.fechaNacimiento = fechaNacimiento;
     }
 }

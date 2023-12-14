@@ -48,8 +48,7 @@ public class Juego {
         int totalCartasRepartir = numJugadores * numCartas;
 
         if (totalCartasRepartir > cartasRestantes) {
-            System.out.println("Error: No hay cartas suficientes para repartir a todos los jugadores.");
-            return;
+            throw new IllegalArgumentException("Error: No hay cartas suficientes para repartir a todos los jugadores.");
         }
 
         for (int i = 0; i < numJugadores; i++) {
@@ -66,4 +65,9 @@ public class Juego {
     public int cartasRestantes() {
         return cartasRestantes;
     }
+
+    public boolean barajaCompleta() {
+        return cartasRestantes == baraja.length;
+    }
 }
+

@@ -31,4 +31,13 @@ public class Usuario {
         return Objects.hash(dni);
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Usuario{");
+        sb.append("nombre='").append(nombre).append('\'');
+        sb.append(", apellidos='").append(apellidos).append('\'');
+        sb.append(", numSocio=").append(numSocio);
+        sb.append('}');
+        return sb.toString();
+    }
 }

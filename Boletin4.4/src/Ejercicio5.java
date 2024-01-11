@@ -4,14 +4,14 @@ public class Ejercicio5 {
         String palabraBuscar = "lenguaje";
         String palabraReemplazar = "lenguaje de programación";
 
-        String textoModificado = reemplazarPalabra(textoOriginal, palabraBuscar, palabraReemplazar);
+        String textoModificado = reemplazarPalabra(textoOriginal + "\n ", palabraBuscar, palabraReemplazar);
 
         System.out.println("El texto modificado es:");
         System.out.println(textoModificado);
     }
 
     public static String reemplazarPalabra(String texto, String palabraBuscar, String palabraReemplazar) {
-        /**StringBuilder resultado = new StringBuilder();
+        StringBuilder resultado = new StringBuilder(texto);
         int indiceInicio = 0;
 
         while (indiceInicio < texto.length()) {
@@ -27,10 +27,17 @@ public class Ejercicio5 {
         }
 
         return resultado.toString();
-         */
-        for (int i = texto.indexOf(palabraBuscar); i != -1; i += palabraReemplazar.length()){
+        /** for (int i = 0; i != 1; i += palabraReemplazar.length()){
+         i = resultado.indexOf(palabraBuscar, i);
 
-        }
-        return string;
+         if(i != -1){
+         resultado.delete(i, i + palabraBuscar.length());
+         resultado.insert(i, palabraReemplazar);
+         } else{
+         //i = -1 - palabraReemplazar.length();
+         break;
+         }
+         }
+         return String.valueOf(texto);**/
     }
 }

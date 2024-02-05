@@ -1,5 +1,7 @@
 package Ejercicio3;
 
+import java.util.Arrays;
+
 public class Mago extends Personaje{
 
     public static final int HECHIZOS_MAX=4;
@@ -69,5 +71,17 @@ public class Mago extends Personaje{
         if (personaje.getVidaActual() == 0){
             throw new PersonajeException("El otro personaje ha muerto");
         }
+        hechizos[posHechizo] = null;
+        personaje.setVidaActual(personaje.getVidaActual()-DAMAGE_HECHIZO);
+
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Mago{");
+        sb.append("hechizos=").append(Arrays.toString(hechizos));
+        sb.append(super.toString());
+        sb.append('}');
+        return sb.toString();
     }
 }

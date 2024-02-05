@@ -69,10 +69,13 @@ public class Personaje {
     }
 
     public void setVidaActual(int vidaActual) throws PersonajeException {
-        if (vidaActual < VIDA_MIN || vidaActual > vidaMaxima){
-            throw new PersonajeException("Valor de vida no permitido");
+        if (vidaActual < VIDA_MIN ){
+            this.vidaActual = VIDA_MIN;
+        } else if (vidaActual > vidaMaxima) {
+            this.vidaActual = vidaMaxima;
+        }else {
+            this.vidaActual = vidaActual;
         }
-        this.vidaActual = vidaActual;
     }
 
     @Override

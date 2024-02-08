@@ -1,17 +1,15 @@
 package Examen2122;
 
-public class FicheroBinario extends Fichero{
-
+public class FicheroImagen extends Fichero{
     private byte[] contenido;
+    private TFormato formato;
 
-    public FicheroBinario(String nombre, byte[] contenido) {
+    public FicheroImagen(String nombre, byte[] contenido, TFormato formato) {
         super(nombre);
-        setContenido(contenido);
+        this.contenido = contenido;
+        this.formato = formato;
     }
 
-    private void setContenido(byte[] contenido) {
-        this.contenido = contenido;
-    }
 
     @Override
     public long getSize() {

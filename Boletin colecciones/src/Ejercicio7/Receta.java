@@ -2,7 +2,7 @@ package Ejercicio7;
 
 import java.util.*;
 
-public class Receta {
+public class Receta implements Comparable<Receta>{
 
     private String nombre;
     private int tiempoPreparacion;
@@ -30,7 +30,7 @@ public class Receta {
     }
 
     public void annadirIngrediente(Ingrediente ingredienteNuevo){
-
+        boolean encontrado = false;
         Iterator<Ingrediente> it = ingredientes.iterator();
 
         while (it.hasNext()){
@@ -38,35 +38,30 @@ public class Receta {
 
            if (ingredienteNuevo.getNombre().equals(i.getNombre())){
                i.addCantidad(ingredienteNuevo.getCantidad());
+               encontrado = true;
            }
+        }
+        if (!encontrado){
+            ingredientes.add(ingredienteNuevo);
         }
     }
 
     public void borrarIngrediente(Ingrediente ingredienteABorrar) throws RecetaException {
-        if (!ingredientes.contains(ingredienteABorrar)){
+        if (!ingredientes.remove(ingredienteABorrar)){
             throw new RecetaException("El ingrediente no existe en la receta");
         }
 
-        ingredientes.remove(ingredienteABorrar);
-
-        List<String> eliminaPaso = new ArrayList<>();
-
-        for (String paso : pasos){
-            if (paso.contains(ingredienteABorrar.getNombre())){
-                eliminaPaso.add(paso);
-            }
-        }
-
-        pasos.removeAll(eliminaPaso);
+        pasos.removeIf(paso -> paso.contains(ingredienteABorrar.getNombre()));
     }
 
     public void annadirPasoDetrasDe(String pasoNuevo, String pasoExistente) throws RecetaException {
-        if (!pasos.contains(pasoExistente)){
-            throw new RecetaException("El paso existente no existe en la receta");
+        int posPasoExistente = pasos.indexOf(pasoExistente);
+
+        if (posPasoExistente == -1){
+            throw new RecetaException("La receta no contiene ese paso");
         }
 
-        int indice = pasos.indexOf(pasoExistente);
-        pasos.add(indice +1, pasoNuevo);
+        pasos.add(posPasoExistente + 1, pasoNuevo);
     }
 
     public boolean contieneIngrediente(String ingrediente) {
@@ -76,5 +71,10 @@ public class Receta {
             }
         }
         return false;
+    }
+
+    @Override
+    public int compareTo(Receta o) {
+        return this.nombre.compareTo(o.nombre);
     }
 }

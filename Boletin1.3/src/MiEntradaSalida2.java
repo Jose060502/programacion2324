@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class MiEntradaSalida {
+public class MiEntradaSalida2 {
     public static Scanner sc = new Scanner(System.in);
 
     /**
@@ -36,5 +36,25 @@ public class MiEntradaSalida {
 
     public static void cerrarScanner(){
         sc.close();
+    }
+
+    public static int leerEnteroPositivo(String mensaje){
+        System.out.printf(mensaje + ": ");
+        int num;
+
+        //TODO: Controlar excepción
+        do {
+            num = Integer.parseInt(sc.nextLine());
+            if (num <= 0){
+                System.out.println("Introduce un número entero mayor que 0");
+            }
+        } while (num <= 0);
+
+        return num;
+
+    }
+    public static String leerString(String mensaje){
+        System.out.printf(mensaje + ": ");
+        return sc.nextLine();
     }
 }

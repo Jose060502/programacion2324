@@ -11,7 +11,6 @@ public class Paciente implements Comparable<Paciente>{
     private String nombre;
     private int edad;
     private int prioridad;
-
     private int ordenLlegada;
 
     public Paciente(String dni, String nombre, int edad, int prioridad, int ordenLlegada) throws HospitalException {
